@@ -16,7 +16,7 @@ class App extends React.Component{
   render() {
     return (
         <>
-        <Gallery type="mountains"/*{this.state.thingSearch} onClickButtonChoice={this.handleOnClickButtonChoice}*/ />
+        <Gallery type="sailing"/*{this.state.thingSearch} onClickButtonChoice={this.handleOnClickButtonChoice}*/ />
         </>
     );
   }

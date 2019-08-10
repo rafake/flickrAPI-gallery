@@ -22,7 +22,7 @@ class Picture extends React.Component{
             <li className="picture-item"
                 onClick={this.handleClick}>
                 <div className="img-container">
-                    <img src={`https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}_m.jpg`} alt=""/>
+                    <img src={`https://farm${this.props.farm}.staticflickr.com/${this.props.server}/${this.props.id}_${this.props.secret}.jpg`} alt=""/>
 
                 </div>
                 </li>

@@ -38,7 +38,7 @@ class Gallery extends React.Component{
     };
 
     componentDidMount() {
-        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&text=${this.props.type}&per_page=10&format=json&nojsoncallback=1`
+        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${this.props.type}&sort=interestingness-desc&content_type=1&per_page=20&format=json&nojsoncallback=1`
         fetch(url).then(r=>r.json()).then(resp=> this.setState({photos: resp.photos.photo}));
         this.hoverEffectFunction();
     }
