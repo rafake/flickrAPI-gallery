@@ -17,7 +17,8 @@ class Gallery extends React.Component{
             isOpen: false,
             pageNo: 2,
             value: "",
-            tag: this.props.type,
+            tag: null,
+            currentTag: "",
             hasUpdated: false
         };
 
@@ -45,19 +46,23 @@ class Gallery extends React.Component{
     };
 
     componentDidMount() {
-        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${this.state.tag}&sort=interestingness-desc&content_type=1&per_page=20&format=json&nojsoncallback=1`
+        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${this.props.type}&sort=interestingness-desc&content_type=1&per_page=20&format=json&nojsoncallback=1`
         fetch(url).then(r=>r.json()).then(resp=> this.setState({photos: resp.photos.photo}));
         this.hoverEffectFunction();
     }
-    //
-    // componentWillUpdate(nextProps, nextState, nextContext) {
-    // }
+
 
     componentWillUpdate(nextProps, nextState, nextContext) {
-            console.log(nextState)
-            const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${this.state.tag}&sort=interestingness-desc&content_type=1&per_page=20&format=json&nojsoncallback=1`
-            fetch(url).then(r=>r.json()).then(resp=> this.setState({photos: resp.photos.photo}));
-            this.hoverEffectFunction();
+        if (!(nextState.tag==null)) {
+            console.log(nextState);
+            const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${nextState.tag}&sort=interestingness-desc&content_type=1&per_page=20&format=json&nojsoncallback=1`;
+            fetch(url).then(r => r.json()).then(resp => this.setState({photos: resp.photos.photo}));
+            // this.hoverEffectFunction();
+            console.log(url);
+            this.setState({tag: null});
+            this.setState({hasUpdated: true});
+            this.setState({pageNo: 2});
+        }
 
     }
 
@@ -68,9 +73,14 @@ class Gallery extends React.Component{
         counter++;
         this.setState({pageNo: counter});
         console.log(this.state.pageNo);
-        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${this.props.type}&sort=interestingness-desc&content_type=1&per_page=20&page=${this.state.pageNo}&format=json&nojsoncallback=1`
-        fetch(url).then(r=>r.json()).then(resp=> {
-            console.log(resp);
+        let url = "";
+        if (this.state.hasUpdated == true) {
+            url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${this.state.currentTag}&sort=interestingness-desc&content_type=1&per_page=20&page=${this.state.pageNo}&format=json&nojsoncallback=1`
+        } else {
+            url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=67fa847a53bdc09b2db5c74c43d44b39&tags=${this.props.type}&sort=interestingness-desc&content_type=1&per_page=20&page=${this.state.pageNo}&format=json&nojsoncallback=1`
+        }
+           fetch(url).then(r=>r.json()).then(resp=> {
+            console.log(url);
             let photosOnLoad = resp.photos.photo;
             let photosLoadedPreviously = this.state.photos;
             let newPhotosState = photosLoadedPreviously.concat(photosOnLoad);
@@ -104,11 +114,12 @@ class Gallery extends React.Component{
     handleSubmit(event) {
         event.preventDefault();
         this.setState({tag: this.state.value});
-        this.setState({hasUpdated: true});
+        this.setState({currentTag: this.state.value});
+        // this.setState({hasUpdated: true});
         setTimeout(() => {
             console.log(this.state.tag);
         },1000);
-        this.setState({hasUpdated: false});
+        // this.setState({hasUpdated: false});
 
 
     }
