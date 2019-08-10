@@ -12,19 +12,11 @@ class App extends React.Component{
       thingSearch: "hej"
     }
   }
-  // handleOnClickButtonChoice = (event, value) => {
-  //   event.preventDefault();
-  //   console.log(event);
-  //   console.log(value);
-  //   let a = document.querySelector("#input");
-  //   console.log(a);
-  //   this.setState({thingSearch: a.value});
-  //
-  // };
+
   render() {
     return (
         <>
-        <Gallery type="duck"/*{this.state.thingSearch} onClickButtonChoice={this.handleOnClickButtonChoice}*/ />
+        <Gallery type="mountains"/*{this.state.thingSearch} onClickButtonChoice={this.handleOnClickButtonChoice}*/ />
         </>
     );
   }
