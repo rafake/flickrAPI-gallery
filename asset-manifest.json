@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/flickrAPI-gallery/static/css/main.80df3f33.chunk.css",
+    "main.js": "/flickrAPI-gallery/static/js/main.d318ec84.chunk.js",
+    "main.js.map": "/flickrAPI-gallery/static/js/main.d318ec84.chunk.js.map",
+    "runtime~main.js": "/flickrAPI-gallery/static/js/runtime~main.670a2a96.js",
+    "runtime~main.js.map": "/flickrAPI-gallery/static/js/runtime~main.670a2a96.js.map",
+    "static/js/2.8258aebf.chunk.js": "/flickrAPI-gallery/static/js/2.8258aebf.chunk.js",
+    "static/js/2.8258aebf.chunk.js.map": "/flickrAPI-gallery/static/js/2.8258aebf.chunk.js.map",
+    "index.html": "/flickrAPI-gallery/index.html",
+    "precache-manifest.042f3c5841b87d4967e45cea7541cb99.js": "/flickrAPI-gallery/precache-manifest.042f3c5841b87d4967e45cea7541cb99.js",
+    "service-worker.js": "/flickrAPI-gallery/service-worker.js",
+    "static/css/main.80df3f33.chunk.css.map": "/flickrAPI-gallery/static/css/main.80df3f33.chunk.css.map",
+    "static/media/adventure-daylight-glacier-301391.jpg": "/flickrAPI-gallery/static/media/adventure-daylight-glacier-301391.3fe559ed.jpg",
+    "static/media/blue-sky-clear-sky-cold-346529.jpg": "/flickrAPI-gallery/static/media/blue-sky-clear-sky-cold-346529.a0e64787.jpg",
+    "static/media/daylight-environment-forest-459225.jpg": "/flickrAPI-gallery/static/media/daylight-environment-forest-459225.6aef47be.jpg",
+    "static/media/flickr.svg": "/flickrAPI-gallery/static/media/flickr.f03cabed.svg",
+    "static/media/logo.svg": "/flickrAPI-gallery/static/media/logo.ee7cd8ed.svg"
+  }
+}
